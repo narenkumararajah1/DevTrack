@@ -3,6 +3,7 @@ package com.naren.devtrack.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.naren.devtrack.data.repository.AuthRepository
+import com.naren.devtrack.data.repository.UserProfileRepository
 import com.naren.devtrack.util.isValidEmail
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -21,7 +22,8 @@ data class RegisterUiState(
 )
 
 class RegisterViewModel @JvmOverloads constructor(
-    private val authRepository: AuthRepository = AuthRepository()
+    private val authRepository: AuthRepository = AuthRepository(),
+    private val userProfileRepository: UserProfileRepository = UserProfileRepository()
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(RegisterUiState())
@@ -49,8 +51,12 @@ class RegisterViewModel @JvmOverloads constructor(
 
         _uiState.value = state.copy(isLoading = true, errorMessage = null)
         viewModelScope.launch {
-            val result = authRepository.signUp(state.email.trim(), state.password)
-            if (result.isSuccess) {
+            val signUpResult = authRepository.signUp(state.email.trim(), state.password)
+            val result = signUpResult.fold(
+                onSuccess = { authUser -> userProfileRepository.createUserProfile(authUser.uid, authUser.email) },
+                onFailure = { Result.failure(it) }
+            )
+            if (signUpResult.isSuccess) {
                 // Registration signs the new user in; sign out so the Register -> Login flow
                 // requires them to authenticate explicitly, per the app's navigation spec.
                 authRepository.signOut()

@@ -18,7 +18,7 @@
 - [x] Email Validation
 - [x] Password Reset
 - [x] Remember Me
-- [ ] User Profile Creation
+- [x] User Profile Creation
 
 ---
 
