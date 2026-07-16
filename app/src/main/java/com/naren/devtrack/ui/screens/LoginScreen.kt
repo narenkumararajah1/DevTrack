@@ -26,6 +26,7 @@ import com.naren.devtrack.viewmodel.LoginViewModel
 @Composable
 fun LoginScreen(
     onNavigateToRegister: () -> Unit,
+    onNavigateToResetPassword: () -> Unit,
     onLoginSuccess: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: LoginViewModel = viewModel()
@@ -92,6 +93,10 @@ fun LoginScreen(
             } else {
                 Text("Login")
             }
+        }
+
+        TextButton(onClick = onNavigateToResetPassword) {
+            Text("Forgot Password?")
         }
 
         TextButton(onClick = onNavigateToRegister) {

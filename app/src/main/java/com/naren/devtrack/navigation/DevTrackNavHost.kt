@@ -9,6 +9,7 @@ import androidx.navigation.compose.rememberNavController
 import com.naren.devtrack.ui.screens.HomeScreen
 import com.naren.devtrack.ui.screens.LoginScreen
 import com.naren.devtrack.ui.screens.RegisterScreen
+import com.naren.devtrack.ui.screens.ResetPasswordScreen
 import com.naren.devtrack.ui.screens.SplashScreen
 
 @Composable
@@ -38,6 +39,7 @@ fun DevTrackNavHost(
         composable(Screen.Login.route) {
             LoginScreen(
                 onNavigateToRegister = { navController.navigate(Screen.Register.route) },
+                onNavigateToResetPassword = { navController.navigate(Screen.ResetPassword.route) },
                 onLoginSuccess = {
                     navController.navigate(Screen.Home.route) {
                         popUpTo(Screen.Login.route) { inclusive = true }
@@ -52,6 +54,11 @@ fun DevTrackNavHost(
                         popUpTo(Screen.Register.route) { inclusive = true }
                     }
                 }
+            )
+        }
+        composable(Screen.ResetPassword.route) {
+            ResetPasswordScreen(
+                onNavigateToLogin = { navController.popBackStack() }
             )
         }
         composable(Screen.Home.route) {

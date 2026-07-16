@@ -48,6 +48,17 @@ class AuthRepository @JvmOverloads constructor(
                 }
         }
 
+    suspend fun sendPasswordResetEmail(email: String): Result<Unit> =
+        suspendCancellableCoroutine { continuation ->
+            firebaseAuth.sendPasswordResetEmail(email)
+                .addOnSuccessListener {
+                    continuation.resume(Result.success(Unit))
+                }
+                .addOnFailureListener { exception ->
+                    continuation.resume(Result.failure(exception))
+                }
+        }
+
     fun signOut() {
         firebaseAuth.signOut()
     }

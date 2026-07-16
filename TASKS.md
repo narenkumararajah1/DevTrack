@@ -16,7 +16,7 @@
 - [x] Login Screen
 - [x] Signup Screen
 - [x] Email Validation
-- [ ] Password Reset
+- [x] Password Reset
 - [x] Remember Me
 - [ ] User Profile Creation
 
