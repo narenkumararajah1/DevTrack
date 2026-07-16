@@ -13,8 +13,8 @@
 
 ## Phase 2 — Authentication
 
-- [ ] Login Screen
-- [ ] Signup Screen
+- [x] Login Screen (placeholder UI only, no auth logic yet)
+- [x] Signup Screen (placeholder UI only, no auth logic yet)
 - [ ] Email Validation
 - [ ] Password Reset
 - [ ] Remember Me
@@ -24,7 +24,7 @@
 
 ## Phase 3 — Dashboard
 
-- [ ] Home Screen
+- [x] Home Screen (placeholder UI only, no dashboard logic yet)
 - [ ] Bottom Navigation
 - [ ] User Greeting
 - [ ] Current Streak
