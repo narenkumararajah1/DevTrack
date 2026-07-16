@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "510356106278",
+    "project_id": "devtrack-e10aa",
+    "storage_bucket": "devtrack-e10aa.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:510356106278:android:fb68811012478975a4cae7",
+        "android_client_info": {
+          "package_name": "com.naren.devtrack"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA19nMsOrPB9NaGhk1aepl_CrXwygKIkmE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
