@@ -13,9 +13,9 @@
 
 ## Phase 2 — Authentication
 
-- [x] Login Screen (placeholder UI only, no auth logic yet)
-- [x] Signup Screen (placeholder UI only, no auth logic yet)
-- [ ] Email Validation
+- [x] Login Screen
+- [x] Signup Screen
+- [x] Email Validation
 - [ ] Password Reset
 - [ ] Remember Me
 - [ ] User Profile Creation

@@ -33,7 +33,11 @@ fun DevTrackNavHost(
         composable(Screen.Login.route) {
             LoginScreen(
                 onNavigateToRegister = { navController.navigate(Screen.Register.route) },
-                onNavigateToHome = { navController.navigate(Screen.Home.route) }
+                onLoginSuccess = {
+                    navController.navigate(Screen.Home.route) {
+                        popUpTo(Screen.Login.route) { inclusive = true }
+                    }
+                }
             )
         }
         composable(Screen.Register.route) {
