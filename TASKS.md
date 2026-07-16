@@ -24,12 +24,12 @@
 
 ## Phase 3 — Dashboard
 
-- [x] Home Screen (placeholder UI only, no dashboard logic yet)
-- [ ] Bottom Navigation
-- [ ] User Greeting
-- [ ] Current Streak
-- [ ] Weekly Summary
-- [ ] Recent Activity
+- [x] Home Screen
+- [x] Bottom Navigation
+- [x] User Greeting
+- [x] Current Streak (empty state; real tracking pending Phase 4/6)
+- [x] Weekly Summary (empty state; real tracking pending Phase 4/6)
+- [x] Recent Activity (empty state; real tracking pending Phase 4/5)
 
 ---
 

@@ -2,6 +2,7 @@ package com.naren.devtrack.data.repository
 
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
+import com.naren.devtrack.domain.model.UserProfile
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlin.coroutines.resume
 
@@ -22,6 +23,27 @@ class UserProfileRepository @JvmOverloads constructor(
                 .set(profile)
                 .addOnSuccessListener {
                     continuation.resume(Result.success(Unit))
+                }
+                .addOnFailureListener { exception ->
+                    continuation.resume(Result.failure(exception))
+                }
+        }
+
+    suspend fun getUserProfile(uid: String): Result<UserProfile?> =
+        suspendCancellableCoroutine { continuation ->
+            firestore.collection(USERS_COLLECTION).document(uid)
+                .get()
+                .addOnSuccessListener { snapshot ->
+                    val profile = if (snapshot.exists()) {
+                        UserProfile(
+                            uid = snapshot.getString("uid") ?: uid,
+                            email = snapshot.getString("email"),
+                            createdAt = snapshot.getTimestamp("createdAt")?.toDate()?.time
+                        )
+                    } else {
+                        null
+                    }
+                    continuation.resume(Result.success(profile))
                 }
                 .addOnFailureListener { exception ->
                     continuation.resume(Result.failure(exception))
