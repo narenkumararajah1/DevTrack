@@ -35,11 +35,11 @@
 
 ## Phase 4 — Project Management
 
-- [ ] Create Project
-- [ ] Edit Project
-- [ ] Delete Project
-- [ ] Mark Progress
-- [ ] Archive Projects
+- [x] Create Project
+- [x] Edit Project
+- [x] Delete Project
+- [x] Mark Progress
+- [x] Archive Projects
 
 ---
 
